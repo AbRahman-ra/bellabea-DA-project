@@ -1,15 +1,15 @@
 # bellabea-DA-project
 
-### Google Data Analytics Capstone Project (Case Study 2, Bellabeat)
+Google Data Analytics Capstone Project (Case Study 2, Bellabeat)
 
-## How Can a Wellness Technology Company Play It Smart?
+# How Can a Wellness Technology Company Play It Smart?
 
-### Business: “Bellabeat”
+Business: “Bellabeat”
 
 This is my first Data Analytics Case Study, it's a part of Google Data Analytics Certificate. The project is mainly divided into:
 
 - Project Problem Statement
-- Original Datasets & Workfiles (csv)
+- Original Datasets & WorkFiles (csv)
 - Clean Work Datasets (csv)
 - R files that contain codes for analysis & visualization
 - Project Report (rmd & PDF formats, soon)
