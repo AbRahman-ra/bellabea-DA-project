@@ -1,0 +1,231 @@
+read.csv("A:\My_Career\DataAnalytics\CaseStudy2\AfterAnalysis\workfiles\activity.csv", header = TRUE, sep = ",")
+read.csv("AfterAnalysis\workfiles\activity.csv", header = TRUE, sep = ",")
+read.csv("AfterAnalysis/workfiles/activity.csv", header = TRUE, sep = ",")
+activity <- read.csv(".../workfiles/activity.csv")
+activity <- read.csv("A:/My_Career/DataAnalytics/CaseStudy2/AfterAnalysis/workfiles/activity.csv")
+View(activity)
+activityH <- read.csv("A:/My_Career/DataAnalytics/CaseStudy2/AfterAnalysis/workfiles/activityH.csv")
+View(activityH)
+sleep <- read.csv("A:/My_Career/DataAnalytics/CaseStudy2/AfterAnalysis/workfiles/sleep.csv")
+View(sleep)
+weight <- read.csv("A:/My_Career/DataAnalytics/CaseStudy2/AfterAnalysis/workfiles/weight.csv")
+View(weight)
+uSteps <- read.csv("A:/My_Career/DataAnalytics/CaseStudy2/AfterAnalysis/workfiles/Supplement/uSteps.csv")
+View(uSteps)
+uSleep <- read.csv("A:/My_Career/DataAnalytics/CaseStudy2/AfterAnalysis/workfiles/Supplement/uSleep.csv")
+View(uSleep)
+install.packages(dplyr)
+installed.packages()
+n_distinct(activity$id)
+install.packages(dblyr)
+install.packages(dplyr)
+install.packages(dbplyr)
+install.packages(dplyr)
+install.packages("dplyr")
+n_distinct(activity$id)
+library(dplyr)
+n_distinct(activity$id)
+num_sleep <- n_distinct(sleep$id)
+num_activ <- n_distinct(activity$id)
+num_wei <- n_distinct(weight$id)
+#Count peoplw who recorded their steps & weight
+joined_data <- inner_join(activity, weight, by = c("id"="id"))
+#Count peoplw who recorded their steps & weight
+joined_data <- inner_join(activity, weight, by = c("id"))
+#Count peoplw who recorded their steps & weight
+joined_data <- inner_join(activity, weight, by = c(activity$id = weight$id))
+#Count peoplw who recorded their steps & weight
+joined_data <- inner_join(activity, weight, by = "id")
+distinct_ids <- n_distinct(joined_data$id)
+distinct_ids
+#Count peoplw who recorded their steps & sleep
+steps_sleep <- inner_join(activity, sleep, by = "id")
+num_activ_sleep <- n_distinct(steps_sleep$id)
+num_activ_wei <- n_distinct(steps_wei$id) #8
+#Count peoplw who recorded their steps & weight
+steps_wei <- inner_join(activity, weight, by = "id")
+num_activ_wei <- n_distinct(steps_wei$id) #8
+rm(distinct_ids)
+#Count people who recorded their weight & sleep
+wei_sleep <- inner_join(weight, sleep, by = "id")
+num_wei_sleep <- n_distinct(wei_sleep$id) #24
+#Count all participants
+all_ppl <- outer_join(weight, sleep, activity)
+#Count all participants
+all_ppl <- merge(weight, sleep, activity, by = "id", all = TRUE)
+#Count all participants
+all_ppl <- merge(merge(weight, sleep, by = "id", all = TRUE), activity, by = "id", all = TRUE)
+num_all_ppl <- n_distinct(all_ppl)
+num_all_ppl <- n_distinct(all_ppl$id)
+#Count people who recorded their steps, sleep & weight
+activ_wei_sleep <- inner_join(activity,weight,sleep, by = "id")
+num_activ_wei_sleep <- n_distinct(activ_wei_sleep)
+num_activ_wei_sleep <- n_distinct(activ_wei_sleep$id)
+weights$date <- as.Date(weights$date)
+#Calculate the total and average weight loss for each user
+# Convert the date column to a date format
+weight$date <- as.Date(weight$date)
+# Group the weights table by id and get the minimum and maximum dates for each id
+id_dates <- weights %>%
+group_by(id) %>%
+summarize(first_date = min(date), last_date = max(date))
+id_dates <- weight %>%
+group_by(id) %>%
+summarize(first_date = min(date), last_date = max(date))
+# Join the weights table with the id_dates table to get the weight at the first and last dates for each id
+weight_first_last <- weight %>%
+inner_join(id_dates, by = "id") %>%
+filter(date %in% c(first_date, last_date))
+# Calculate the total and average weight loss for each id
+weight_pivot <- weight_first_last %>%
+group_by(id) %>%
+summarize(num_days = as.numeric(last_date - first_date),
+tot_weight_loss = first(weight) - last(weight),
+avg_weight_loss = (first(weight) - last(weight)) / num_days)
+# Calculate the total and average weight loss for each id
+weight_pivot <- weight_first_last %>%
+group_by(id) %>%
+summarize(num_days = as.numeric(last_date - first_date + 1),
+tot_weight_loss = first(weight) - last(weight),
+avg_weight_loss = (first(weight) - last(weight)) / num_days)
+# Calculate the total and average weight loss for each id
+weight_pivot <- weight_first_last %>%
+group_by(id) %>%
+summarize(num_days = as.numeric(last_date - first_date + 1),
+tot_weight_loss = first(weight) - last(weight),
+avg_weight_loss = (first(weight) - last(weight)) / num_days)
+str(weights$weight)
+str(weight$weight)
+str(weight$weightKg)
+# Calculate the total and average weight loss for each id
+weight_pivot <- weight_first_last %>%
+group_by(id) %>%
+summarize(num_days = as.numeric(last_date - first_date + 1),
+tot_weight_loss = first(weightKg) - last(weightKg),
+avg_weight_loss = (first(weightKg) - last(weightKg)) / num_days)
+View(weight_pivot)
+# Print the weight_pivot table
+num_days
+rm(weight_pivot)
+View(activity)
+View(weight)
+View(weight_first_last)
+View(weight)
+#Calculate the total and average weight loss for each user
+# Convert the date column to a date format
+weight$date <- as.Date(weight$dateTime, format = "%d/%m/%Y")
+#Calculate the total and average weight loss for each user
+# Convert the date column to a date format
+weight$date <- as.Date(weight$dateTime, format = "%m/%d/%Y")
+# Calculate the total and average weight loss for each id
+weight_pivot <- weight_first_last %>%
+group_by(id) %>%
+summarize(num_days = as.numeric(last_date - first_date + 1),
+tot_weight_loss = first(weightKg) - last(weightKg),
+avg_weight_loss = (first(weightKg) - last(weightKg)) / num_days)
+View(weight_pivot)
+View(weight_pivot)
+weight$date <- format(weight$date, format = "%d/%m/%Y")
+View(weight)
+# Calculate the total and average weight loss for each id
+weight_pivot <- weight_first_last %>%
+group_by(id) %>%
+summarize(num_days = as.numeric(last_date - first_date + 1),
+tot_weight_loss = first(weightKg) - last(weightKg),
+avg_weight_loss = (first(weightKg) - last(weightKg)) / num_days)
+View(weight_pivot)
+weight$date <- format(weight$date, "%d/%m/%Y")
+weight$date <- format(weight$date[!is.na(weight$date)], "%d/%m/%Y")
+weight$date <- format(weight$date, "%d/%m/%Y")
+weight$date <- format(weight$date, "%d/%m/%Y")
+library(lubridate)
+install.packages("lubridate")
+install.packages("lubridate")
+library(lubridate)
+format <- guess_format(weight$date)
+install.packages("readr")
+library(readr)
+format <- guess_format(weight$date)
+library(readr)
+library(lubridate)
+format <- guess_format(weight$date)
+format <- guess_formats(weigth$date)
+format <- guess_formats(weight$date)
+format <- guess_formats(weight$date)
+weight$date <- format(weight$date, "%d/%m/%Y")
+weight$date <- format(dmy(weight$date), "%d/%m/%Y")
+weight$date <- format(dmy(weight$date), "%d/%m/%Y")
+# Group the weights table by id and get the minimum and maximum dates for each id
+id_dates <- weight %>%
+group_by(id) %>%
+summarize(first_date = min(date), last_date = max(date))
+# Join the weights table with the id_dates table to get the weight at the first and last dates for each id
+weight_first_last <- weight %>%
+inner_join(id_dates, by = "id") %>%
+filter(date %in% c(first_date, last_date))
+# Calculate the total and average weight loss for each id
+weight_pivot <- weight_first_last %>%
+group_by(id) %>%
+summarize(num_days = as.numeric(last_date - first_date + 1),
+tot_weight_loss = first(weightKg) - last(weightKg),
+avg_weight_loss = (first(weightKg) - last(weightKg)) / num_days)
+# Calculate the total and average weight loss for each id
+weight_pivot <- weight_first_last %>%
+group_by(id) %>%
+summarize(num_days = as.numeric(last_date - first_date + 1),
+tot_weight_loss = first(weightKg) - last(weightKg),
+avg_weight_loss = (first(weightKg) - last(weightKg)) / num_days)
+rm(weight_pivot)
+library(dplyr)
+# Calculate the total and average weight loss for each id
+weight_pivot <- weight_first_last %>%
+group_by(id) %>%
+summarize(num_days = as.numeric(last_date - first_date + 1),
+tot_weight_loss = first(weightKg) - last(weightKg),
+avg_weight_loss = (first(weightKg) - last(weightKg)) / num_days)
+View(weight_pivot)
+clc
+system("clear")
+# Set up
+install.packages("dplyr")
+install.packages("readr")
+library(dplyr)
+library(readr)
+library(lubridate)
+#Count people in 3 categories
+num_activ <- n_distinct(activity$id) #33
+num_sleep <- n_distinct(sleep$id) #24
+num_wei <- n_distinct(weight$id) #8
+#Count people who recorded their steps & weight
+steps_wei <- inner_join(activity, weight, by = "id")
+num_activ_wei <- n_distinct(steps_wei$id) #8
+#Count people who recorded their steps & sleep
+steps_sleep <- inner_join(activity, sleep, by = "id")
+num_activ_sleep <- n_distinct(steps_sleep$id) #24
+#Count people who recorded their weight & sleep
+wei_sleep <- inner_join(weight, sleep, by = "id")
+num_wei_sleep <- n_distinct(wei_sleep$id) #6
+#Count people who recorded their steps, sleep & weight
+activ_wei_sleep <- inner_join(activity,weight,sleep, by = "id")
+num_activ_wei_sleep <- n_distinct(activ_wei_sleep$id) #8
+#Count all participants
+all_ppl <- merge(merge(weight, sleep, by = "id", all = TRUE), activity, by = "id", all = TRUE)
+num_all_ppl <- n_distinct(all_ppl$id) #33
+#Calculate the total and average weight loss for each user
+# Convert the date column to a date format
+weight$date <- as.Date(weight$dateTime, format = "%m/%d/%Y")
+weight$date <- format(dmy(weight$date), "%d/%m/%Y")
+# Group the weights table by id and get the minimum and maximum dates for each id
+id_dates <- weight %>%
+group_by(id) %>%
+summarize(first_date = min(date), last_date = max(date))
+# Join the weights table with the id_dates table to get the weight at the first and last dates for each id
+weight_first_last <- weight %>%
+inner_join(id_dates, by = "id") %>%
+filter(date %in% c(first_date, last_date))
+# Calculate the total and average weight loss for each id
+weight_pivot <- weight_first_last %>%
+group_by(id) %>%
+summarize(num_days = as.numeric(last_date - first_date + 1),
+tot_weight_loss = first(weightKg) - last(weightKg),
+avg_weight_loss = (first(weightKg) - last(weightKg)) / num_days)
