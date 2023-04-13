@@ -8,4 +8,4 @@ This is my first Data Analytics Case Study, it's a part of Google Data Analytics
 - Original Datasets & Workfiles (csv)
 - Clean Work Datasets (csv)
 - R files that contain codes for analysis & visualization
-- Project Report (rmd & PDF formats)
+- Project Report (rmd & PDF formats, soon)
