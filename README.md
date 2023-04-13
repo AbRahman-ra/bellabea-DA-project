@@ -1,8 +1,8 @@
-# bellabea-DA-project
+##### bellabeat-DA-project
 
 # How Can a Wellness Technology Company Play It Smart?
 
-Business: “Bellabeat”
+##### Business: “Bellabeat”
 
 ###### _Google Data Analytics Capstone Project (Case Study 2, Bellabeat)_
 
