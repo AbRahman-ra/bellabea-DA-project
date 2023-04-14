@@ -5,11 +5,13 @@ install.packages("dplyr")
 install.packages("readr")
 install.packages("ggplot2")
 install.packages("ggsci")
+install.packages("tinytex")
 library(dplyr)
 library(readr)
 library(lubridate)
 library(ggplot2)
 library(ggsci)
+tinytex::install_tinytex(force = TRUE)
 
 activity <- read.csv("A:/My_Career/DataAnalytics/CaseStudy2/AfterAnalysis/workfiles/activity.csv")
 activityH <- read.csv("A:/My_Career/DataAnalytics/CaseStudy2/AfterAnalysis/workfiles/activityH.csv")
@@ -104,17 +106,6 @@ activH_pivot <- activityH %>%
 
 #==========
 
-# Calculate average time slept by users
-sleep_pivot <- sleep %>%
-  group_by(id) %>%
-  summarize(avg_sleep = mean(totalMinutesAsleep),
-            avg_inBed = mean(totalTimeInBed),
-            sleepSD = sd(totalMinutesAsleep),
-            norm_sleepSD = sleepSD/avg_sleep,
-            avg_sleepQ = avg_sleep/avg_inBed)
-
-#==========
-
 # Calculate the weekly average distance in Km for user
 uSteps$date = as.Date(uSteps$date, format = "%d/%m/%Y")
 
@@ -124,6 +115,17 @@ uSteps_pivot <- uSteps %>%
   summarize(avg_weekDistKm = mean(distanceKm),
             weekDistKmSD = sd(distanceKm),
             normWeekDistSD = weekDistKmSD/avg_weekDistKm)
+
+#==========
+
+# Calculate average time slept by users
+sleep_pivot <- sleep %>%
+  group_by(id) %>%
+  summarize(avg_sleep = mean(totalMinutesAsleep),
+            avg_inBed = mean(totalTimeInBed),
+            sleepSD = sd(totalMinutesAsleep),
+            norm_sleepSD = sleepSD/avg_sleep,
+            avg_sleepQ = avg_sleep/avg_inBed)
 
 #==========
 
@@ -186,7 +188,7 @@ ggplot(data = distance_pivot, aes(x = as.character(id), y = avg_distance, fill =
   labs(title = "Average distance covered by users",
        x = "ID",
        y = "Average Distance in km",
-       fill = "CoV")
+       fill = "inconsistency (%)")
 
 ggplot(data = distance_pivot)+
   geom_smooth(color = "maroon", fill = NA, aes(x = tot_distance, y = normDistanceSD*100))+
